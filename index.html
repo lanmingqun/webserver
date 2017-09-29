@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=no">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1>新闻列表</h1>
+    </div>
+
+    <div class="box" id="box">
+        <ul>
+            <li>
+                <span>[ 最新 ]</span>
+                <a href="http://wd.gyyx.cn/action/1.63/index.html">1.63阵惊天下 全新版本来袭</a>
+            </li>
+            <li>
+                <span>[ 最新 ]</span>
+                <a href="http://wd.gyyx.cn/action/1.63/index.html">1.63阵惊天下 全新版本来袭</a>
+            </li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        var box=document.getElementById("box");
+        function Ajax(type,url) {
+            var xml = null;
+            if (window.XMLHttpRequest) xml = new XMLHttpRequest();          else {
+                xml = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xml.open(type, url);
+            xml.send(null);
+            xml.onreadystatechange = function () {
+                if (xml.readyState == 4 && xml.status == 200) {
+                    var result = JSON.parse(xml.responseText),                          data=JSON.parse(result.data);
+                    //console.log(data);
+                    var str="";
+                    str+="<ul>"
+                    for(var i=0;i<data.length;i++){
+                        console.log(data[i])
+                        str+='<li>'+
+                                '<span>[ '+data[i].title+' ]</span>'+
+                                '<a href="'+data[i].href+'">'+data[i].content+'</a>'+                                  '</li>'
+                    }
+                    str+="</ul>"
+                    box.innerHTML=str;
+                }
+            }
+        }
+        Ajax("get", "http://localhost:8090/index.html?data");
+    </script>
+</body>
+</html>

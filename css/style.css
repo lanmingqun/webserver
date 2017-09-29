@@ -1,0 +1,35 @@
+body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  font-size: 0.12rem; }
+
+.header {
+  height: 80px; }
+  .header h1 {
+    line-height: 80px;
+    text-align: center;
+    font-size: 22px;
+    letter-spacing: 15px;
+    color: red; }
+
+.box ul {
+  list-style: none; }
+  .box ul li {
+    width: 90%;
+    margin-right: 5%;
+    margin-top: 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+    .box ul li span {
+      color: skyblue; }
+    .box ul li a {
+      display: inline-block;
+      text-decoration: none;
+      color: orange;
+      margin-left: 15px; }
+
+/*# sourceMappingURL=style.css.map */
